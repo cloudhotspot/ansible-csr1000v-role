@@ -144,9 +144,9 @@ csr_enable_scp: False
 csr_license_level: appx
 ```
 
-## Bring your own CSR 1000v configuration
+## Bring your own CSR 1000V configuration
 
-You can deploy your own configuration file to the deployed CSR 1000v virtual machine by configuring the `csr_config_file` variable:
+You can deploy your own configuration file to the deployed CSR 1000V virtual machine by configuring the `csr_config_file` variable:
 
 `$ ansible-playbook site.yml --extra-vars csr_config_file=/path/to/your/config/file`
 
@@ -193,7 +193,3 @@ The modified configuration file snippet above will result in OVF environment set
 <Property oe:key="com.cisco.csr1000v.ios-config-0010.1" oe:value=" server-private 192.168.1.201 auth-port 1812 acct-port 1813 key pass1234"/>
 <Property oe:key="com.cisco.csr1000v.ios-config-0011.1" oe:value="aaa authentication login default local"/>
 ```
-
-## Known Issues
-
-<a href="https://github.com/cloudhotspot/ansible-cisco-csr1000v/issues/1">"VMWare Tools power-on script did not run successfully" error after VM power on</a>
