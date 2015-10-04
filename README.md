@@ -136,6 +136,12 @@ csr_name: csr01
 csr_admin_username: admin
 csr_admin_password: Pass1234
 csr_domain_name: cloudhotspot.co
+
+# Set to 'True' or 'False'
+csr_enable_scp: False
+
+# Set to 'ax' or 'appx'
+csr_license_level: appx
 ```
 
 ## Bring your own CSR 1000v configuration
