@@ -1,0 +1,21 @@
+---
+- name: Get VMX path if existing VM is running
+  shell: "'{{ csr_vmrun_path }}' list | grep -F '{{ csr_vm_safe_dst_full_path }}' || true"
+  register: csr_existing_vmx_path
+  when: csr_vm_exists.stat.isdir is defined
+  changed_when: csr_existing_vmx_path is defined and csr_existing_vmx_path.stdout != ""
+  notify:
+    - stop vm hard
+- meta: flush_handlers
+# - name: Stop VM if it is running
+#   shell: "'{{ csr_vmrun_path }}' stop '{{ csr_existing_vmx_path.stdout }}'"
+  # when: csr_existing_vmx_path is defined and csr_existing_vmx_path.stdout != ""
+- name: Pause to allow VM to stop cleanly
+  pause: seconds=3
+  when: csr_existing_vmx_path is defined and csr_existing_vmx_path.stdout != ""
+- name: Remove existing VM path
+  file: path='{{ csr_vm_safe_dst_full_path }}' state=absent
+- name: Create VM path
+  file: path='{{ csr_vm_safe_dst_full_path }}' state=directory
+- name: Extract OVA using ovftool
+  command: "'/{{ csr_ovftool_path.stdout }}' '{{ csr_ova_source }}' '{{ csr_vm_vmx_path }}'"

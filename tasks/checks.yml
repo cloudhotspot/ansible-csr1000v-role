@@ -1,0 +1,19 @@
+---
+- name: Check for ovftool
+  shell: pkgutil --pkgs | awk '/com.vmware.ovftool.application/'
+  register: csr_pkgutil_ovftool
+  changed_when: False
+- name: Fail if VMWare OVF Tools are not installed
+  fail: msg="VMWare OVF Tools are required.  Please install and retry."
+  when: 'not {{ csr_pkgutil_ovftool.stdout | match("com.vmware.ovftool.application") }}'
+- name: Get ovftool path
+  shell: pkgutil --files com.vmware.ovftool.application | grep -FE 'ovftool$'
+  register: csr_ovftool_path
+  changed_when: false
+- name: Check VM path
+  stat: path='{{ csr_vm_safe_dst_full_path }}'
+  register: csr_vm_exists
+  changed_when: False
+- name: Fail if VM path exists
+  fail: msg="VM already exists.  Please set csr_vm_overwrite variable to any value to overwrite the existing VM"
+  when: (csr_vm_exists.stat.isdir is defined) and (csr_vm_overwrite is not defined)

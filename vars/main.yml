@@ -1,0 +1,19 @@
+---
+# This role is currently designed to work with management interface set to use DHCP
+csr_mgmt_interface: 'GigabitEthernet{{ csr_vm_mgmt_interface + 1 }}'
+csr_mgmt_ip_address: dhcp
+csr_mgmt_ip_gateway: dhcp
+
+# Location of VMWare Fusion NAT interface DHCP configuration file
+csr_dhcpd_conf_path: "/Library/Preferences/VMware Fusion/vmnet8/dhcpd.conf"
+
+# Location of the VMWare Fusion vmrun command-line utility
+csr_vmrun_path: "/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
+
+# Location of the VMWare Fusion vmnet-cli command-line utility
+csr_vmnet_path: "/Applications/VMware Fusion.app/Contents/Library/vmnet-cli"
+
+# Regex variables
+csr_vm_mgmt_ip_regex_match: '(.*)\..*$'
+csr_vm_mgmt_ip_regex_replace: '\1.{{ csr_vm_mgmt_ip_octet }}'
+csr_vm_mgmt_gateway_regex_replace: '\1.2' 
