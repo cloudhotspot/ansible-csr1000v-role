@@ -9,16 +9,6 @@ An Ansible role for automating deployment of the Cisco Cloud Services Router (CS
 - <a href="https://www.vmware.com/support/developer/ovf/" target="_blank">VMWare OVF Tools</a> 4.1 or higher (VMWare account may be required)
 - <a href="https://software.cisco.com/download/release.html?mdfid=284364978&softwareid=282046477&release=3.14.1S&relind=AVAILABLE&rellifecycle=ED&reltype=latest" target="_blank">Cisco CSR 1000v OVA Image</a> (CCO login required)
 
-This role also relies on the Ansible Galaxy <a href="https://github.com/yaegashi/ansible-role-blockinfile" target="_blank">yaegashi.blockinfile module</a>.  You must install this module if using this role:
-
-```bash
-$ ansible-galaxy install yaegashi.blockinfile
-- downloading role 'blockinfile', owned by yaegashi
-- downloading role from https://github.com/yaegashi/ansible-role-blockinfile/archive/v0.5.tar.gz
-- extracting yaegashi.blockinfile to /usr/local/etc/ansible/roles/yaegashi.blockinfile
-- yaegashi.blockinfile was installed successfully
-```
-
 ##Role Variables
 
 You must specify the following variables in your playbook:
@@ -74,15 +64,7 @@ A description of the settable variables for this role should go here, including 
 Dependencies
 ------------
 
-This role relies on the Ansible Galaxy <a href="https://github.com/yaegashi/ansible-role-blockinfile" target="_blank">yaegashi.blockinfile module</a>.  You must install this module if using this role:
-
-```bash
-$ ansible-galaxy install yaegashi.blockinfile
-- downloading role 'blockinfile', owned by yaegashi
-- downloading role from https://github.com/yaegashi/ansible-role-blockinfile/archive/v0.5.tar.gz
-- extracting yaegashi.blockinfile to /usr/local/etc/ansible/roles/yaegashi.blockinfile
-- yaegashi.blockinfile was installed successfully
-```
+This role relies on the Ansible Galaxy <a href="https://github.com/yaegashi/ansible-role-blockinfile" target="_blank">yaegashi.blockinfile module</a>.  Installing this role will automatically install this module.
 
 Example Playbook
 ----------------
