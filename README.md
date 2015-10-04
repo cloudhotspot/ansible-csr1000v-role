@@ -2,7 +2,11 @@
 
 This Ansible playbook can be used to automate deployment of the Cisco Cloud Services Router (CSR) 1000V on VMWare Fusion.  
 
-The playbook creates an OVF environment (VMWare Fusion does not support creating OVF environments) to allow the CSR 1000V to provision and configure itself upon deployment.  This is controlled via an OVF environment file, which is deployed based upon the `templates/ovf-env.xml.j2` template in this repository.  The playbook packages this file into an ISO image that is then attached to the virtual machine, allowing the CSR 1000V guest to bootstrap its configuration based upon the OVF environment file.
+The playbook creates an OVF environment (VMWare Fusion does not support creating OVF environments) to allow the CSR 1000V to provision and configure itself upon deployment.  
+
+This is controlled via an OVF environment file, which is deployed based upon the `templates/ovf-env.xml.j2` template in this repository.  
+
+The playbook packages this file into an ISO image that is then attached to the virtual machine, allowing the CSR 1000V guest to bootstrap its configuration based upon the OVF environment file.
 
 See <a href="http://pseudo.co.de/ansible-cisco-csr1000v/" target="_blank">my blog post</a> for further details on this playbook.
 
