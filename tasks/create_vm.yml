@@ -7,9 +7,6 @@
   notify:
     - stop vm hard
 - meta: flush_handlers
-# - name: Stop VM if it is running
-#   shell: "'{{ csr_vmrun_path }}' stop '{{ csr_existing_vmx_path.stdout }}'"
-  # when: csr_existing_vmx_path is defined and csr_existing_vmx_path.stdout != ""
 - name: Pause to allow VM to stop cleanly
   pause: seconds=3
   when: csr_existing_vmx_path is defined and csr_existing_vmx_path.stdout != ""
