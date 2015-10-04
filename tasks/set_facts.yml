@@ -1,6 +1,6 @@
 ---
 - name: Pad VM destination root path with /
-  set_fact: csr_vm_padded_destination='{{ csr_vm_destination }}/'
+  set_fact: csr_vm_padded_destination='{{ csr_vm_root }}/'
 - name: Extract root directory name from padded VM root path
   set_fact: csr_vm_safe_dst="{{ csr_vm_padded_destination | dirname }}"
 - name: Get full path to VM folder
