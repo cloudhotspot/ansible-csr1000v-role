@@ -188,8 +188,6 @@ The modified configuration file snippet above will result in OVF environment set
 <Property oe:key="com.cisco.csr1000v.ios-config-0011.1" oe:value="aaa authentication login default local"/>
 ```
 
-## Cleanup
+## Known Issues
 
-The playbook installs a temporary DHCP reservation for the vWLC virtual machine which is removed once the vWLC deployment is complete.
-
-The playbook will return the TFTP server run state to its previous state, however the playbook does not revert the previous TFTP configuration file.
+<a href="https://github.com/cloudhotspot/ansible-cisco-csr1000v/issues/1">"VMWare Tools power-on script did not run successfully" error after VM power on</a>
