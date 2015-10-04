@@ -1,4 +1,4 @@
-# ansible-csr1000v
+# ansible-csr1000v-role
 
 An Ansible role for automating deployment of the Cisco Cloud Services Router (CSR) 1000V on VMWare Fusion.  
 
