@@ -25,7 +25,7 @@ You must specify the following variables in your playbook:
 
 ```yaml
 # Location of the Cisco CSR 1000V OVA image 
-csr_ova_source: /path/to/ova
+csr_ova_source: "/path/to/ova/source"
 
 # Root folder where the Cisco CSR 1000V virtual machine that will be created
 csr_vm_root: "/path/to/root"
@@ -91,10 +91,10 @@ This playbook is designed to run locally on local OS X host so you should config
 
     - hosts: localhost
       connection: local
-      vars:
-        my_ova_source_var: /path/to/ova
       roles:
-         - { role: mixja.csr1000v, csr_vm_overwrite: true, csr_ova_source: my_ova_source_var }
+         - { role: mixja.csr1000v, csr_vm_overwrite: true, csr_ova_source: /path/to/ova/source, csr_ova_root: /path/to/vm/root  }
+
+<a href="https://github.com/cloudhotspot/ansible-csr1000v-playbook target-"_blank">See this sample playbook also.</a>
 
 License
 -------
