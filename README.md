@@ -94,7 +94,7 @@ This playbook is designed to run locally on local OS X host so you should config
       roles:
          - { role: mixja.csr1000v, csr_vm_overwrite: true, csr_ova_source: /path/to/ova/source, csr_ova_root: /path/to/vm/root  }
 
-<a href="https://github.com/cloudhotspot/ansible-csr1000v-playbook target-"_blank">See this sample playbook also.</a>
+A sample playbook is provided at <a href="https://github.com/cloudhotspot/ansible-csr1000v-playbook">https://github.com/cloudhotspot/ansible-csr1000v-playbook</a>
 
 License
 -------
