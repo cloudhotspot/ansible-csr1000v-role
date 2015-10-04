@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Environment
+     xmlns="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:oe="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:ve="http://www.vmware.com/schema/ovfenv"
+     oe:id=""
+     ve:vCenterId="vm-31">
+   <PlatformSection>
+      <Kind>VMware ESXi</Kind>
+      <Version>5.5.0</Version>
+      <Vendor>VMware, Inc.</Vendor>
+      <Locale>en</Locale>
+   </PlatformSection>
+   <PropertySection>
+         <Property oe:key="com.cisco.csr1000v.CONTROL_PORT.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.MGMT_KEY.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.Mode.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.TUNNEL_PORT.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.config-version.1" oe:value="1.0"/>
+         <Property oe:key="com.cisco.csr1000v.domain-name.1" oe:value="{{ csr_domain_name | default('') }}"/>
+         <Property oe:key="com.cisco.csr1000v.enable-scp-server.1" oe:value="{{ csr_enable_scp | default ("False") }}"/>
+         <Property oe:key="com.cisco.csr1000v.enable-ssh-server.1" oe:value="True"/>
+         <Property oe:key="com.cisco.csr1000v.hostname.1" oe:value="{{ csr_name | default("csr1000v") }}"/>
+         <Property oe:key="com.cisco.csr1000v.ic-tunnel-header-size.1" oe:value="148"/>
+         <Property oe:key="com.cisco.csr1000v.ic-tunnel-ipv4-addr.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.ic-tunnel-ipv4-gateway.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.license.1" oe:value="{{ csr_license_level | default("appx") }}"/>
+         <Property oe:key="com.cisco.csr1000v.login-password.1" oe:value="{{ csr_admin_password | default('') }}"/>
+         <Property oe:key="com.cisco.csr1000v.login-username.1" oe:value="{{ csr_admin_username | default('') }}"/>
+         <Property oe:key="com.cisco.csr1000v.mgmt-interface.1" oe:value="{{ csr_mgmt_interface | default('GigabitEthernet1') }}"/>
+         <Property oe:key="com.cisco.csr1000v.mgmt-ipv4-addr.1" oe:value="dhcp"/>
+         <Property oe:key="com.cisco.csr1000v.mgmt-ipv4-gateway.1" oe:value="dhcp"/>
+         <Property oe:key="com.cisco.csr1000v.mgmt-ipv4-network.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.mgmt-vlan.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.pnsc-agent-local-port.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.pnsc-ipv4-addr.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.pnsc-shared-secret-key.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.privilege-password.1" oe:value=""/>
+         <Property oe:key="com.cisco.csr1000v.remote-mgmt-ipv4-addr.1" oe:value=""/>
+   </PropertySection>
+</Environment>

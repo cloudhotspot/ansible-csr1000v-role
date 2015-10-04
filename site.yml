@@ -1,0 +1,9 @@
+---
+- include: checks.yml
+- include: create_vm.yml
+- include: ovf_environment.yml
+- include: introspect.yml
+- include: dhcp.yml
+- include: start_vm.yml
+- include: hosts.yml
+- include: cleanup.yml

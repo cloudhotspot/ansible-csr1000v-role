@@ -1,0 +1,32 @@
+#############################################################
+#                                                           #
+# USER VARIABLES                                            #
+#                                                           #
+# Modify the variables below for your environment           #
+#                                                           #
+#############################################################
+
+csr_name: csr01
+csr_admin_username: admin
+csr_admin_password: Pass1234
+csr_domain_name: cloudhotspot.co
+
+# Set to 'True' or 'False'
+csr_enable_scp: False
+
+# Set to 'ax' or 'appx'
+csr_license_level: appx
+
+#############################################################
+#                                                           #
+# SYSTEM VARIABLES                                          #
+#                                                           #
+# The variables below generally do not require modification # 
+#                                                           #
+#############################################################
+
+# This playbook is designed to work with management interface set to use DHCP
+csr_mgmt_interface: 'GigabitEthernet{{ vm_mgmt_interface + 1 }}'
+csr_mgmt_ip_address: dhcp
+csr_mgmt_ip_gateway: dhcp
+

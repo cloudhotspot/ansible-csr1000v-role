@@ -1,0 +1,30 @@
+---
+- name: Disable power event scripts
+  hosts: all
+  vars_files:
+    - vm_vars.yml
+  handlers:
+    - include: handlers/vmware.yml
+  tasks:
+    - name: Disable afterpoweron script
+      lineinfile:
+        dest: '{{ vm_vmx_path }}'
+        line: toolscripts.afterpoweron = "false"
+        regexp: '^toolscripts.afterpoweron ='
+    - name: Disable afterresume script
+      lineinfile:
+        dest: '{{ vm_vmx_path }}'
+        line: toolscripts.afterresume = "false"
+        regexp: '^toolscripts.afterresume ='
+    - name: Disable beforepoweroff script
+      lineinfile:
+        dest: '{{ vm_vmx_path }}'
+        line: toolscripts.beforepoweroff = "false"
+        regexp: '^toolscripts.beforepoweroff ='
+    - name: Disable beforesuspend script
+      lineinfile:
+        dest: '{{ vm_vmx_path }}'
+        line: toolscripts.beforesuspend = "false"
+        regexp: '^toolscripts.beforesuspend ='
+      notify:
+        - start vm

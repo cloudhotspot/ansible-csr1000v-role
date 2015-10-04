@@ -1,0 +1,64 @@
+---
+#############################################################
+#                                                           #
+# USER VARIABLES                                            #
+#                                                           #
+# Modify the variables below for your environment           #
+#                                                           #
+#############################################################
+
+# Location of the Cisco CSR 1000V OVA image 
+ova_source: "/Volumes/Promise RAID/Downloads/csr1000v-universalk9.03.14.01.S.155-1.S1-std.ova"
+
+# Root folder where the Cisco CSR 1000V virtual machine that will be created
+vm_destination: "/Volumes/Promise RAID/Virtual Machines.localized"
+
+# Name of the Cisco CSR 1000V virtual machine that will be created
+vm_name: "csr01"
+
+# Last Octet of IP address assigned to CSR 1000V management interface.  This value should be between 3 and 127.
+vm_mgmt_ip_octet: "120"
+
+# Management Interface - 0 = Ethernet0/GigabitEthernet1, 1 = Ethernet1/GigabitEthernet2, 2 = Ethernet2/GigabitEthernet2
+vm_mgmt_interface: 2
+
+# Keep the DHCP reservation used for provisioning
+vm_persist_dhcp_reservation: yes
+
+
+#############################################################
+#                                                           #
+# SYSTEM VARIABLES                                          #
+#                                                           #
+# The variables below generally do not require modification # 
+#                                                           #
+#############################################################
+
+# TFTP settings
+tftp_path: /Users/Shared/tftp
+tftp_plist: /System/Library/LaunchDaemons/tftp.plist
+
+# Location of VMWare Fusion NAT interface DHCP configuration file
+dhcpd_conf_path: "/Library/Preferences/VMware Fusion/vmnet8/dhcpd.conf"
+
+# Location of the VMWare Fusion vmrun command-line utility
+vmrun_path: "/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
+
+# Location of the VMWare Fusion vmnet-cli command-line utility
+vmnet_path: "/Applications/VMware Fusion.app/Contents/Library/vmnet-cli"
+
+
+#############################################################
+#                                                           #
+# CALCULATED VARIABLES                                      #
+#                                                           #
+# Do not modify these variables                             # 
+#                                                           #
+#############################################################
+# vm_padded_destination: "{{ vm_destination }}/"
+# vm_safe_dst: "{{ vm_padded_destination | dirname }}"
+# vm_safe_dst_full_path: "{{ vm_safe_dst }}/{{ vm_name }}.vmwarevm"
+
+vm_mgmt_ip_regex_match: '(.*)\..*$'
+vm_mgmt_ip_regex_replace: '\1.{{vm_mgmt_ip_octet}}'
+vm_mgmt_gateway_regex_replace: '\1.2' 

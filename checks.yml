@@ -1,0 +1,29 @@
+---
+- name: Verify ovftool is installed
+  hosts: all
+  tasks:
+    - name: Check for ovftool
+      shell: pkgutil --pkgs | awk '/com.vmware.ovftool.application/'
+      register: pkgutil_ovftool
+      changed_when: False
+    - name: Fail if VMWare OVF Tools are not installed
+      fail: msg="VMWare OVF Tools are required.  Please install and retry."
+      when: 'not {{ pkgutil_ovftool.stdout | match("com.vmware.ovftool.application") }}'
+    - name: Get ovftool path
+      shell: pkgutil --files com.vmware.ovftool.application | grep -FE 'ovftool$'
+      register: ovftool_path
+      changed_when: false
+
+- name: Set facts
+  hosts: all
+  vars_files:
+    - vm_vars.yml
+  tasks:
+    - name: Pad VM destination root path with /
+      set_fact: vm_padded_destination='{{ vm_destination }}/'
+    - name: Extract root directory name from padded VM root path
+      set_fact: vm_safe_dst="{{ vm_padded_destination | dirname }}"
+    - name: Get full path to VM folder
+      set_fact: vm_safe_dst_full_path="{{ vm_safe_dst }}/{{ vm_name }}.vmwarevm"
+    - name: Get full path fo VMX file
+      set_fact: vm_vmx_path="{{ vm_safe_dst_full_path }}/{{ vm_name }}.vmx"
