@@ -78,6 +78,8 @@ This playbook is designed to run locally on local OS X host so you should config
 
 A sample playbook is provided at <a href="https://github.com/cloudhotspot/ansible-csr1000v-playbook">https://github.com/cloudhotspot/ansible-csr1000v-playbook</a>
 
+Please also take note the following issue - https://github.com/cloudhotspot/ansible-csr1000v-role/issues/2
+
 License
 -------
 
