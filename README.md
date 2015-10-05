@@ -2,6 +2,8 @@
 
 An Ansible role for automating deployment of the Cisco Cloud Services Router (CSR) 1000V on VMWare Fusion.  
 
+The role creates and configures an OVF runtime environment that the CSR 1000V can use to provision configuration settings upon deployment.
+
 ##Requirements
 
 - Mac OS X
