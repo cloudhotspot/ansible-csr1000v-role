@@ -23,9 +23,3 @@ csr_enable_scp: False
 # Set to 'ax' or 'appx'
 csr_license_level: appx
 
-# Location of the Cisco CSR 1000V OVA image 
-# csr_ova_source: "/Volumes/Promise RAID/Downloads/csr1000v-universalk9.03.14.01.S.155-1.S1-std.ova"
-
-# Root folder where the Cisco CSR 1000V virtual machine that will be created
-# csr_vm_root: "/Volumes/Promise RAID/Virtual Machines.localized"
-
