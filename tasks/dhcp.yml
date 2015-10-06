@@ -24,5 +24,5 @@
   notify:
     - stop vmware networking
     - start vmware networking
-    - start vm
+    - start vm headless
 - meta: flush_handlers

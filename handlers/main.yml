@@ -5,8 +5,11 @@
 - name: start vmware networking
   command: '"{{ csr_vmnet_path }}" --start'
   become: yes
-- name: start vm
+- name: start vm headless
   command: '"{{ csr_vmrun_path }}" start "{{ csr_vm_vmx_path }}" nogui'
+  become: no
+- name: start vm
+  command: '"{{ csr_vmrun_path }}" start "{{ csr_vm_vmx_path }}"'
   become: no
 - name: stop vm
   command: '"{{ csr_vmrun_path }}" stop "{{ csr_vm_vmx_path }}"'
