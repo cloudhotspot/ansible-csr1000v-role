@@ -120,6 +120,10 @@ galaxy_info:
   categories:
   - networking
   - system
+  galaxy_tags:
+  - csr1000v
+  - cisco
+  - vmware_fusion
 
 dependencies:
   - { role: yaegashi.blockinfile }
