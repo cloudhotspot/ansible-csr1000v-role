@@ -5,7 +5,7 @@
     regexp='^ethernet{{ csr_vm_mgmt_interface }}.connectionType ='
     line='ethernet{{ csr_vm_mgmt_interface }}.connectionType = "nat"'
   notify:
-    - start vm
+    - start vm headless
     - stop vm
 - meta: flush_handlers
 - name: Get vmnet8 IP address
